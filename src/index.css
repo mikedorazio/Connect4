@@ -88,4 +88,4 @@ body {
 .drop-zone .active.row-4 { transform: translateY(calc(550px + var(--gap) * 4)); }
 .drop-zone .active.row-5 { transform: translateY(calc(650px + var(--gap) * 5)); }
 
-.drop-zone .active.col--.row-- {transition: none}
+.drop-zone .active.col-undef.row-undef {transition: none}
