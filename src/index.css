@@ -1,0 +1,91 @@
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color-scheme: light dark;
+    --cell-size: 100px;
+    --cell-thickness: 3px;
+    --grid-size: 4;
+    --p1: #f1bf3a;
+    --p2: #ec0b07;
+    --gap: 5px;
+    --size: 100px;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 220px;
+    min-height: 90vh;
+    justify-content: center;
+}
+
+.app-container {
+    display: grid;
+    place-content: center;
+}
+
+.board-container {
+    background-color: rgb(50, 50, 181);
+    display: grid;
+    grid-template-columns: repeat(7, var(--cell-size));
+    grid-template-rows: repeat(6, var(--cell-size));
+    row-gap: var(--gap);
+    column-gap: var(--gap);
+    margin: auto;
+}
+
+.cell-container {
+    background-color: white;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    box-sizing: border-box;
+    border: 1px solid black;
+    aspect-ratio: 1/1;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.drop-zone {
+    height: calc(var(--size) * 1.5);
+    /* background-color: rgb(61, 32, 32); */
+    position: relative;
+}
+
+.drop-zone div {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.drop-zone .p1 {
+    background-color: var(--p1);
+}
+.drop-zone .p2 {
+    background-color: var(--p2);
+}
+
+.drop-zone .active {
+    transition: all ease-in-out 600ms;
+}
+
+.drop-zone .active.col-0 { margin-left: 0px; }
+.drop-zone .active.col-1 { margin-left: calc(100px + var(--gap) * 1) }
+.drop-zone .active.col-2 { margin-left: calc(200px + var(--gap) * 2) }
+.drop-zone .active.col-3 { margin-left: calc(300px + var(--gap) * 3) }
+.drop-zone .active.col-4 { margin-left: calc(400px + var(--gap) * 4) }
+.drop-zone .active.col-5 { margin-left: calc(500px + var(--gap) * 5) }
+.drop-zone .active.col-6 { margin-left: calc(600px + var(--gap) * 6) }
+
+.drop-zone .active.row-0 { transform: translateY(calc(150px + var(--gap) * 0)); }
+.drop-zone .active.row-1 { transform: translateY(calc(250px + var(--gap) * 1)); }
+.drop-zone .active.row-2 { transform: translateY(calc(350px + var(--gap) * 2)); }
+.drop-zone .active.row-3 { transform: translateY(calc(450px + var(--gap) * 3)); }
+.drop-zone .active.row-4 { transform: translateY(calc(550px + var(--gap) * 4)); }
+.drop-zone .active.row-5 { transform: translateY(calc(650px + var(--gap) * 5)); }
+
+.drop-zone .active.col--.row-- {transition: none}
