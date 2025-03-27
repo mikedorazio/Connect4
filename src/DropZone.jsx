@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import ActiveCoin from './ActiveCoin';
+import Winner from './Winner';
 
 export default function DropZone() {
     const [currentPlayer, setCurrentPlayer] = useState(1);
@@ -14,7 +15,6 @@ export default function DropZone() {
         if (didPlayerWin(2)) {
             setWinner(2);
         }
-
     }
 
     function didPlayerWin(playerNumber) {
@@ -58,7 +58,7 @@ export default function DropZone() {
             )}
 
         {winner 
-        ?  <div>Winner {winner} </div>
+        ?  <Winner winner={winner} />
         :  <ActiveCoin currentPlayer={currentPlayer} setCurrentPlayer={setCurrentPlayer} dropped={dropped} setDropped={setDropped} />
         }
 

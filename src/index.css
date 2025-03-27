@@ -51,7 +51,6 @@ body {
 
 .drop-zone {
     height: calc(var(--size) * 1.5);
-    /* background-color: rgb(61, 32, 32); */
     position: relative;
 }
 
@@ -70,7 +69,7 @@ body {
 }
 
 .drop-zone .active {
-    transition: all ease-in-out 600ms;
+    transition: all ease-in-out 300ms;
 }
 
 .drop-zone .active.col-0 { margin-left: 0px; }
@@ -89,3 +88,8 @@ body {
 .drop-zone .active.row-5 { transform: translateY(calc(650px + var(--gap) * 5)); }
 
 .drop-zone .active.col-undef.row-undef {transition: none}
+
+p.winner-container {
+    font-size: 34px;
+    font-weight: 500;
+}

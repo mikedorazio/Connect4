@@ -7,20 +7,24 @@ export default function ActiveCoin( { currentPlayer, setCurrentPlayer, dropped, 
     function handleKeyup(event) {
         switch(event.key) {
             case 'ArrowLeft':
-                console.log("ArrowLeft", column);
+            case 'a':
+                console.log("ArrowLeft or a", column);
                 if (column > 0) {
+                    console.log("settin column to ", column - 1);
                     setColumn(column - 1);
                 }
                 break;
             case 'ArrowRight':
-                console.log("ArrowRight");
+            case 'd':
+                console.log("ArrowRight or d");
                 if (column == undefined) setColumn(0);
                 if (column == 6) break;
                 setColumn(prev => prev + 1);
                 break;
             case 'ArrowDown' :
             case 'Enter' :
-                console.log("ArrowDown or Enter");
+            case 's' :
+                console.log("ArrowDown or Enter or s");
                 const totalDropped = 5 - dropped.filter(drop => drop.y == (column || 0)).length;
                 console.log("totalDropped", totalDropped);
                 if (totalDropped < 0) break;
@@ -32,7 +36,7 @@ export default function ActiveCoin( { currentPlayer, setCurrentPlayer, dropped, 
                         {x: totalDropped, y: column || 0, player: currentPlayer}
                     ]);
                     setCurrentPlayer(currentPlayer === 1 ? 2 : 1);
-                }, 500);
+                }, 400);
                 break;
             default:
                 console.log("ignore");
