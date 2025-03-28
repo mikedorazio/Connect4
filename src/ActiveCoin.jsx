@@ -55,6 +55,6 @@ export default function ActiveCoin( { currentPlayer, setCurrentPlayer, dropped, 
     }, [currentPlayer]);
 
     return (
-        <div className={`active p${currentPlayer} col-${column || 'undef'} row-${row === undefined ? 'undef' : row}`} />
+         <div className={`active p${currentPlayer} col-${column===undefined ? 'undef' : column} row-${row===undefined ? 'undef' : row}`} />
     )
 }
