@@ -93,3 +93,21 @@ p.winner-container {
     font-size: 34px;
     font-weight: 500;
 }
+
+div[winner] {
+    animation: shine 1000ms linear 10;
+}
+
+@keyframes shine {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
