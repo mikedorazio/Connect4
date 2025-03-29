@@ -21,18 +21,22 @@ export default function DropZone() {
         const pDropped = dropped.filter(d => d.player === playerNumber);
 
         pDropped.forEach(({x, y}) => {
-            if (pDropped.find(m => x === m.x +1 && y === m.y) &&
-                pDropped.find(m => x === m.x +2 && y === m.y) &&
-                pDropped.find(m => x === m.x +3 && y === m.y)
+            // vertical match extending downward
+            if (pDropped.find(m => x === m.x + 1 && y === m.y) &&
+                pDropped.find(m => x === m.x + 2 && y === m.y) &&
+                pDropped.find(m => x === m.x + 3 && y === m.y)
             ) setWinner(playerNumber);
+            // horizontal match extending to right
             if (pDropped.find(m => x === m.x && y === m.y + 1) &&
                 pDropped.find(m => x === m.x && y === m.y + 2) &&
                 pDropped.find(m => x === m.x && y === m.y + 3)
             ) setWinner(playerNumber);
+            // diagonal match extending to lower right
             if (pDropped.find(m => x === m.x + 1 && y === m.y + 1) &&
                 pDropped.find(m => x === m.x + 2 && y === m.y + 2) &&
                 pDropped.find(m => x === m.x + 3 && y === m.y + 3)
             ) setWinner(playerNumber);
+            // diagonal match extending to lower left
             if (pDropped.find(m => x === m.x + 1 && y === m.y - 1) &&
                 pDropped.find(m => x === m.x + 2 && y === m.y - 2) &&
                 pDropped.find(m => x === m.x + 3 && y === m.y - 3)
@@ -53,6 +57,7 @@ export default function DropZone() {
         <div className="drop-zone">
            {dropped.map((entry, index) =>
                 <div key={index} className={`p${entry.player}`} 
+                            drop={`x-${entry.x},y-${entry.y}`}
                             style={{transform: `translate(${entry.y*100 + entry.y*5}px, ${entry.x*100+entry.x * 5 + 150}px)`}}
                 />
             )}
